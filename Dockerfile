@@ -30,12 +30,11 @@ RUN /usr/bin/supervisord -c /root/supervisord.conf
 ARG PORT_VNC=5900
 ARG PORT_SSH=22
 ARG PORT_HTTP=80
-ARG PORT_HTTPS=443
 
 EXPOSE \
     ${PORT_VNC} \
     ${PORT_SSH} \
-    ${PORT_HTTP} \
-    ${PORT_HTTPS}
+    ${PORT_HTTP}
 
-ENTRYPOINT ["./startup.sh"]
+CMD ["/bin/bash"]
+
