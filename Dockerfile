@@ -7,7 +7,6 @@ ENV HOME /root
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update
-RUN apt-get upgrade
 RUN apt-get install -y \
         apt-utils net-tools iputils-ping ufw lsof curl netcat wget bzip2 \
         vim-tiny supervisor
