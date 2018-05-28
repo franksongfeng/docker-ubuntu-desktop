@@ -3,7 +3,6 @@ MAINTAINER Feng Song <franksongfeng@yahoo.com>
 
 ENV HOME /root
 ENV DEBIAN_FRONTEND noninteractive
-WORKDIR /root
 
 RUN apt-get update &&
     apt-get upgrade
@@ -19,6 +18,7 @@ RUN apt-get autoclean &&
     apt-get autoremove &&
     rm -rf /var/lib/apt/lists/*
 
+WORKDIR /root
 ARG ROOT_PWD=admin
 RUN mkdir -p /var/run/sshd &&
     echo 'root:'${ROOT_PWD} | chpasswd &&
