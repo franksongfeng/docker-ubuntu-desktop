@@ -14,11 +14,13 @@ RUN apt-get install -y \
         xfce4 xfce4-goodies \
         x11vnc xvfb \
         firefox
+RUN apt-get install -y \
+        python python-pip python3 python3-pip \
+        erlang erlang-xmlrpc erlang-lager erlang-jiffy rebar
+RUN pip install -r /etc/requirements.txt
 RUN apt-get autoclean && \
     apt-get autoremove && \
     rm -rf /var/lib/apt/lists/*
-
-
 ARG ROOT_PWD=admin
 RUN mkdir -p /var/run/sshd && \
     echo 'root:'${ROOT_PWD} | chpasswd && \
