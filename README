@@ -10,7 +10,14 @@ $ git clone https://github.com/franksongfeng/docker-ubuntu-desktop.git
 $ docker build -t docker-ubuntu-desktop .
 
 Run Docker
-------------
+----------
 $ docker run -ti --rm songfeng/docker-ubuntu-desktop
 
-Use vncviewer to connect with <IP>:5900
+Connect VNC
+-----------
+Use Vnc viewer to connect with <IP>:5900
+$ vncviewer <IP>:5900
+
+Connect SSH
+-----------
+$ ssh root@<IP>
