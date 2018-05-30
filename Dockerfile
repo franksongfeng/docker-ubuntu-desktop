@@ -17,6 +17,7 @@ RUN apt-get install -y \
 RUN apt-get install -y \
         python python-pip python3 python3-pip \
         erlang erlang-xmlrpc erlang-lager erlang-jiffy rebar
+COPY requirements.txt /etc/requirements.txt
 RUN pip install -r /etc/requirements.txt
 RUN apt-get autoclean && \
     apt-get autoremove && \
