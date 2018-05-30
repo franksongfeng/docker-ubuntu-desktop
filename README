@@ -1,0 +1,16 @@
+# docker-ubuntu-desktop
+
+Pull Repository
+---------------
+$ docker pull songfeng/docker-ubuntu-desktop
+
+Build Docker
+------------
+$ git clone https://github.com/franksongfeng/docker-ubuntu-desktop.git
+$ docker build -t docker-ubuntu-desktop .
+
+Run Docker
+------------
+$ docker run -ti --rm songfeng/docker-ubuntu-desktop
+
+Use vncviewer to connect with <IP>:5900
