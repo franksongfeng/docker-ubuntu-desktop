@@ -11,7 +11,7 @@ $ docker build -t docker-ubuntu-desktop .
 
 Run Docker
 ----------
-$ docker run -ti --rm songfeng/docker-ubuntu-desktop
+$ docker run -ti --rm -p 5900:5900 songfeng/docker-ubuntu-desktop
 
 Connect VNC
 -----------

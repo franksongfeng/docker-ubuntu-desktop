@@ -22,22 +22,20 @@ RUN pip install -r /etc/requirements.txt
 RUN apt-get autoclean && \
     apt-get autoremove && \
     rm -rf /var/lib/apt/lists/*
+
 ARG ROOT_PWD=admin
+ARG PORT_VNC=5900
+ARG PORT_SSH=22
 RUN mkdir -p /var/run/sshd && \
     echo 'root:'${ROOT_PWD} | chpasswd && \
     sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
+    sed -ri 's/^Port\s+.*/Port ${PORT_SSH}/' /etc/ssh/sshd_config && \
     sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
-
-WORKDIR /root
-
-COPY startup.sh ./
-COPY supervisord.conf ./
-
-ARG PORT_VNC=5900
-ARG PORT_SSH=22
-
 EXPOSE \
     ${PORT_VNC} \
     ${PORT_SSH}
 
+WORKDIR /root
+COPY startup.sh ./
+COPY supervisord.conf ./
 ENTRYPOINT ["./startup.sh"]
