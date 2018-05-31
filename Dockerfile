@@ -8,7 +8,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update
 RUN apt-get install -y \
-        apt-utils net-tools iputils-ping lsof curl netcat wget bzip2 vim-tiny \
+        apt-utils net-tools iputils-ping ufw lsof curl netcat wget bzip2 vim-tiny \
         supervisor \
         openssh-server \
         xfce4 xfce4-goodies \
