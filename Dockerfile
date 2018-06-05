@@ -29,7 +29,7 @@ ARG PORT_SSH=22
 RUN mkdir -p /var/run/sshd && \
     echo 'root:'${ROOT_PWD} | chpasswd && \
     sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
-    sed -ri 's/^Port\s+.*/Port ${PORT_SSH}/' /etc/ssh/sshd_config && \
+    sed -ri "s/^Port\s+.*/Port ${PORT_SSH}/" /etc/ssh/sshd_config && \
     sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 EXPOSE \
     ${PORT_VNC} \
