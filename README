@@ -1,15 +1,15 @@
 # docker-ubuntu-desktop
 
-Pull Repository
+Pull repository from dockerhub
 ---------------
 $ docker pull songfeng/docker-ubuntu-desktop
 
-Build Docker
+Clone from github and build docker
 ------------
 $ git clone https://github.com/franksongfeng/docker-ubuntu-desktop.git
 $ docker build -t docker-ubuntu-desktop .
 
-Run Docker
+Run docker
 ----------
 $ docker run -ti --rm songfeng/docker-ubuntu-desktop
 
