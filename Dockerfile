@@ -5,10 +5,11 @@ LABEL maintainer="Feng Song <franksongfeng@yahoo.com>"
 
 ENV HOME /root
 ENV DEBIAN_FRONTEND noninteractive
+ENV TIME_ZONE Asia/Shanghai
 
 RUN apt-get update
 RUN apt-get install -y \
-        apt-utils net-tools iputils-ping lsof curl netcat wget bzip2 vim-tiny \
+        apt-utils tzdata net-tools iputils-ping lsof curl netcat wget bzip2 vim-tiny \
         supervisor \
         openssh-server \
         xfce4 xfce4-goodies \
@@ -18,6 +19,8 @@ RUN apt-get autoclean && \
     apt-get autoremove && \
     rm -rf /var/lib/apt/lists/*
 
+RUN echo "${TIME_ZONE}" > /etc/timezone && \ 
+    ln -sf /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime
 
 ARG ROOT_PWD=admin
 RUN mkdir -p /var/run/sshd && \
