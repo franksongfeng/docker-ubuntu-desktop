@@ -40,4 +40,5 @@ EXPOSE \
     ${PORT_VNC} \
     ${PORT_SSH}
 
+RUN chmod +x ./startup.sh
 ENTRYPOINT ["./startup.sh"]
